@@ -135,5 +135,8 @@
       }
     }
   },
-  "defaultProject": "angular-starter"
+  "defaultProject": "angular-starter",
+  "cli": {
+    "defaultCollection": "@ngrx/schematics"
+  }
 }
