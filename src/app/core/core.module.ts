@@ -1,10 +1,12 @@
 import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { EnsureModuleLoadedOnceGuard } from './ensureModuleLoadedOnceGuard';
 import { RouterModule } from '@angular/router';
 import { NavigationComponent } from './navigation/navigation.component';
+import { LogResponseInterceptor } from './interceptors/log-response.interceptor';
+import { HeaderInterceptor } from './interceptors/header.interceptor';
 @NgModule({
     imports: [ CommonModule, HttpClientModule ]
 })
@@ -15,7 +17,10 @@ import { NavigationComponent } from './navigation/navigation.component';
               HttpClientModule],
     declarations: [NavigationComponent],
     exports: [NavigationComponent],
-    providers: []
+    providers: [
+        { provide: HTTP_INTERCEPTORS, useClass: LogResponseInterceptor, multi: true },
+        { provide: HTTP_INTERCEPTORS, useClass: HeaderInterceptor, multi: true },
+    ]
 })
 export class CoreModule extends EnsureModuleLoadedOnceGuard {    // Ensure that CoreModule is only loaded into AppModule
 
