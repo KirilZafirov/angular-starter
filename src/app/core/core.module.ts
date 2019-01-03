@@ -7,6 +7,7 @@ import { RouterModule } from '@angular/router';
 import { NavigationComponent } from './navigation/navigation.component';
 import { LogResponseInterceptor } from './interceptors/log-response.interceptor';
 import { HeaderInterceptor } from './interceptors/header.interceptor';
+import { AppTitleService } from './services/app-title.service';
 @NgModule({
     imports: [ CommonModule, HttpClientModule ]
 })
@@ -16,8 +17,9 @@ import { HeaderInterceptor } from './interceptors/header.interceptor';
               RouterModule,
               HttpClientModule],
     declarations: [NavigationComponent],
-    exports: [NavigationComponent],
+    exports: [NavigationComponent ],
     providers: [
+        AppTitleService,
         { provide: HTTP_INTERCEPTORS, useClass: LogResponseInterceptor, multi: true },
         { provide: HTTP_INTERCEPTORS, useClass: HeaderInterceptor, multi: true },
     ]
