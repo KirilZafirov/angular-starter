@@ -4,7 +4,6 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { EnsureModuleLoadedOnceGuard } from './ensureModuleLoadedOnceGuard';
 import { RouterModule } from '@angular/router';
-import { NavigationComponent } from './navigation/navigation.component';
 import { LogResponseInterceptor } from './interceptors/log-response.interceptor';
 import { HeaderInterceptor } from './interceptors/header.interceptor';
 import { AppTitleService } from './services/app-title.service';
@@ -16,8 +15,8 @@ import { AppTitleService } from './services/app-title.service';
     imports: [CommonModule,
               RouterModule,
               HttpClientModule],
-    declarations: [NavigationComponent],
-    exports: [NavigationComponent ],
+    declarations: [],
+    exports: [ ],
     providers: [
         AppTitleService,
         { provide: HTTP_INTERCEPTORS, useClass: LogResponseInterceptor, multi: true },

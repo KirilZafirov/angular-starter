@@ -5,9 +5,15 @@
     "ng": "ng",
     "start": "ng serve -o",
     "build": "ng build",
-    "test": "ng test",
+    "test": "ng test --source-map=false",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "gencode": "ng test --code-coverage",
+    "stats": "webpack-bundle-analyzer dist/angular-starter/stats.json",
+    "maps":"ng build --prod --source-map",
+    "map-main": "source-map-explorer dist/angular-starter/main.990c464a56e488a1bbae.js",
+    "map-polyfills": "source-map-explorer dist/angular-starter/polyfills.068b4c1dada01315335c.js",
+    "map-runtime": "source-map-explorer dist/angular-starter/runtime.ec2944dd8b20ec099bf3.js"
   },
   "private": true,
   "dependencies": {
@@ -47,8 +53,10 @@
     "karma-jasmine": "~1.1.2",
     "karma-jasmine-html-reporter": "^0.2.2",
     "protractor": "~5.4.0",
+    "source-map-explorer": "^1.6.0",
     "ts-node": "~7.0.0",
     "tslint": "~5.11.0",
-    "typescript": "~3.1.6"
+    "typescript": "~3.1.6",
+    "webpack-bundle-analyzer": "^3.0.3"
   }
 }

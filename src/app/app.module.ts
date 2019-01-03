@@ -5,13 +5,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
-import { NavigationComponent } from './core/navigation/navigation.component';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { reducers, metaReducers } from './reducers';
 import { environment } from 'src/environments/environment';
 import { AppEffects } from './app.effects';
+import { NavigationComponent } from './navigation/navigation.component';
 
 @NgModule({
   declarations: [
